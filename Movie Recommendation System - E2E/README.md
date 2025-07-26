@@ -13,7 +13,7 @@ Recommendation Systems are everywhere. Be it Facebook feeds, Instagram reels, Am
 A recommendation system in machine learning is an AI-powered tool designed to suggest relevant items (products, content, services, etc.) to users based on their past behavior, preferences, and interactions, as well as the behavior of similar users.
 </p>
 
-### 🚀 How to Run the Project
+### Run the Project Locally
 
 ```bash
 # Clone this repository
