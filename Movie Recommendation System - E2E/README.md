@@ -9,5 +9,26 @@
 </p>
 
 <p>
-Recommendation System are everywhere. Be it Facebook feeds, Instagram reels feeds, Amazon products, movies on Netflix, we see recommendations on almost every platform.
+Recommendation System are everywhere. Be it Facebook feeds, Instagram reels feeds, Amazon products, movies on Netflix, we see recommendations on almost every platform.<br>
+A recommendation system in machine learning is an AI-powered tool designed to suggest relevant items (products, content, services, etc.) to users based on their past behavior, preferences, and interactions, as well as the behavior of similar users.
 </p>
+
+<p>
+Below are the steps to run this project on your system.
+</p>
+
+<b>Clone this repository</b><br>
+ 
+````git clone https://github.com/ashutoshkaremore/portfolio.git ````
+
+<b>Install the required libraries</b><br>
+````pip install -r requirements.txt````
+
+<b>Run FastAPI using uvicorn server</b><br>
+````uvicorn app:app````
+
+<b>Run Streamlit Frontend</b><br>
+````streamlit main.py````
+
+Now you can search the movie name from the dropdown and recommendatations will be shown based on watched movie
+
