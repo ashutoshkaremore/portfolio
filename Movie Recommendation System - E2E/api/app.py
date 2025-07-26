@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI
 import pickle
 import pandas as pd
+import numpy as np
 
 
 app = FastAPI()
@@ -32,9 +33,9 @@ def home():
 # Show list of Available movies
 @app.get('/movies-list')
 def get_movies_list():
-    movies_list = load_movies()
-    movies_list['title'].to_dict() 
-    return movies_list
+    movies_df = load_movies()
+    titles = movies_df['title'].tolist()
+    return {'movies': titles}
 
 @app.get('/recommendations/{movie_name}')
 async def recommendations(movie_name : str):
@@ -49,6 +50,6 @@ async def recommendations(movie_name : str):
     
         for i in recomendation:
             recommended_movies_list.append(movies_df.iloc[i[0]].title)
-        return recommended_movies_list
+        return {'recommendations': recommended_movies_list}
     else:
         return f'Movie - {movie_name} Not Found'
