@@ -28,7 +28,7 @@ Below are the steps to run this project on your system.
 ````uvicorn app:app````
 
 <b>Run Streamlit Frontend</b><br>
-````streamlit main.py````
+````streamlit run main.py````
 
 Now you can search the movie name from the dropdown and recommendatations will be shown based on watched movie
 
