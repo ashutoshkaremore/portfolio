@@ -49,19 +49,13 @@ def load_similarity_model():
 @app.get('/movie-details/{movie_id}')
 def movie_details(movie_id : str):
 
-    url = f"https://www.omdbapi.com/?t={movie_id}&apikey=3720d1a2"
+    url = f"https://www.omdbapi.com/?t={movie_id}&apikey=xxxxxx"
 
     response = requests.get(url)
     data = response.json()
     image = data['Poster']
     return { 'image_url': image }
 
-
-# @app.get('/trending-movies')
-# def trending_movies():
-#     movies_df = load_movies()
-#     trending_movies = movies_df['year'] == 2025
-#     return {'trending-movies': trending_movies}
 
 @app.get('/')
 def home():
