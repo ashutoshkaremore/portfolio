@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder
 import requests
 import pickle
+from pydantic import BaseModel
 
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -35,25 +36,27 @@ def load_label_encoder():
 
 load_model()
 
-# endpoint to predict fertilizer name
-@app.get('/predict/{Temparature}/{Humidity}/{Moisture}/{Soil}/{Crop}/{Nitrogen}/{Potassium}/{Phosphorous}')
-def predict(
-    Temparature: float,
-    Humidity: float,
-    Moisture: float,
-    Soil: str,
-    Crop: str,
-    Nitrogen: int,
-    Potassium: int,
+class Conditions_Data(BaseModel):
+    Temparature: float
+    Humidity: float
+    Moisture: float
+    Soil: str
+    Crop: str
+    Nitrogen: int
+    Potassium: int
     Phosphorous: int
-):
+
+# endpoint to predict fertilizer name
+@app.post('/predict')
+def predict(data : Conditions_Data):
+    print(data.Soil)
     model = load_model()
     le_soil, le_crop, le_fert = load_label_encoder()
 
-    soil = le_soil.transform([Soil])[0]
-    crop = le_crop.transform([Crop])[0]
+    soil = le_soil.transform([data.Soil])[0]
+    crop = le_crop.transform([data.Crop])[0]
 
-    features = np.array([[Temparature, Humidity, Moisture, soil, crop, Nitrogen, Potassium, Phosphorous]], dtype=float)
+    features = np.array([[data.Temparature, data.Humidity, data.Moisture, soil, crop, data.Nitrogen, data.Potassium, data.Phosphorous]], dtype=float)
 
     prediction = model.predict(features)
     fertilizer = le_fert.inverse_transform(prediction)[0]
