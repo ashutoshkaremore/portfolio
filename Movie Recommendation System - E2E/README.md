@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://github.com/ashutoshkaremore/portfolio/blob/8c830ceeef3976867f1d334d0d529af6595bac71/Movie%20Recommendation%20System%20%20E2E/screenshots/streamlit-main-2025-07-26-22-07-95.mp4">
     <img src="https://github.com/ashutoshkaremore/portfolio/blob/main/Movie%20Recommendation%20System%20-%20E2E/screenshots/demo.gif?raw=true" width="500px" alt="Click to watch the demo" />
-  </a>
+  </a><br>
   Note : omdb api is slow, so poster are fetching slowly
 </p>
 
